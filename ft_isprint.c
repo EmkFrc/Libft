@@ -6,16 +6,14 @@
 /*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:20:50 by efranco           #+#    #+#             */
-/*   Updated: 2024/09/26 16:20:50 by efranco          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:49:18 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint( int character )
+int	ft_isprint(int character)
 {
-    if (character >= 32 && character <= 126)
-        return (1);
-    else
-        return (0);
+	if (character >= 32 && character <= 126)
+		return (1);
+	else
+		return (0);
 }
-
-

@@ -6,17 +6,18 @@
 /*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:27:19 by efranco           #+#    #+#             */
-/*   Updated: 2024/09/26 16:27:19 by efranco          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:53:30 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-size_t ft_strlen( const char *theString )
+#include "libft.h"
+
+size_t	ft_strlen(const char *theString)
 {
-    size_t i;
-    i = 0;
+	size_t	i;
 
-    while(theString[i])
-        i++;
-    return (i);
+	i = 0;
+	while (theString[i])
+		i++;
+	return (i);
 }

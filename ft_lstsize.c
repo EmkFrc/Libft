@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 23:30:53 by efranco           #+#    #+#             */
-/*   Updated: 2024/11/08 16:08:56 by efranco          ###   ########.fr       */
+/*   Created: 2024/11/13 16:57:55 by efranco           #+#    #+#             */
+/*   Updated: 2024/11/13 17:32:01 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
+int	ft_lstsize(t_list *lst)
 {
-	const unsigned char	*memory;
-	unsigned char		sc;
-	size_t				i;
+	int	i;
 
-	memory = (unsigned char *) memoryBlock;
-	sc = (unsigned char)searchedChar;
 	i = 0;
-	while (i < size)
+	while(lst)
 	{
-		if (memory[i] == sc)
-			return ((unsigned char *)memory + i);
+		lst = lst->next;
 		i++;
 	}
-	return (NULL);
+	return (i);
+}
+
+int main()
+{
+	t_list *tab;
+	int	a = 1;
+	tab = ft_lstnew(a);
+	printf("size : %d\n", ft_lstsize(tab));
 }

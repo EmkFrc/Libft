@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 23:30:53 by efranco           #+#    #+#             */
-/*   Updated: 2024/11/08 16:08:56 by efranco          ###   ########.fr       */
+/*   Created: 2024/10/10 22:45:44 by efranco           #+#    #+#             */
+/*   Updated: 2024/11/07 15:22:37 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	const unsigned char	*memory;
-	unsigned char		sc;
-	size_t				i;
+	size_t	i;
+	size_t	s;
 
-	memory = (unsigned char *) memoryBlock;
-	sc = (unsigned char)searchedChar;
 	i = 0;
-	while (i < size)
-	{
-		if (memory[i] == sc)
-			return ((unsigned char *)memory + i);
-		i++;
+	s = ft_strlen(src);
+	if (!src)
+		return (0);
+	if (size > 0)
+	{	
+		while (src[i] != '\0' && i < (size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	return (NULL);
+	return (s);
 }

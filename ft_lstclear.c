@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
+/*   By: efranco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 22:54:59 by efranco           #+#    #+#             */
-/*   Updated: 2024/10/10 22:54:59 by efranco          ###   ########.fr       */
+/*   Created: 2024/11/14 13:13:09 by efranco           #+#    #+#             */
+/*   Updated: 2024/11/14 13:29:10 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_tolower(int character)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (character >= 'A' && character <= 'Z')
-		character += 32;
-	return (character);
+	while (lst->next)
+	{
+		del((*lst)->content);
+		free(*lst);
+		*lst = lst->next;
+	}
+	*lst = NULL;
 }

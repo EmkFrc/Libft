@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
+/*   By: efranco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/02 22:46:42 by efranco           #+#    #+#             */
-/*   Updated: 2024/11/02 22:46:42 by efranco          ###   ########.fr       */
+/*   Created: 2024/11/12 16:26:04 by efranco           #+#    #+#             */
+/*   Updated: 2024/11/12 17:13:07 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putstr_fd(char *s, int fd)
-{
-    int i;
+#include "libft.h"
 
-    i = 0;
-    while (s[i])
-    {
-        ft_putchar_fd(s[i], fd);
-        i++;
-    }
+void	ft_putstr_fd(char *str, int fd)
+{
+	if (!str)
+		return ;
+	while (*str)
+		ft_putchar_fd(*str++, fd);
 }

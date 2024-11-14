@@ -6,14 +6,15 @@
 /*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:12:29 by efranco           #+#    #+#             */
-/*   Updated: 2024/09/26 16:12:29 by efranco          ###   ########.fr       */
+/*   Updated: 2024/11/06 13:32:08 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-        return (1);
-    else
-        return (0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

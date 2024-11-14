@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
+/*   By: efranco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 22:54:59 by efranco           #+#    #+#             */
-/*   Updated: 2024/10/10 22:54:59 by efranco          ###   ########.fr       */
+/*   Created: 2024/11/14 12:52:07 by efranco           #+#    #+#             */
+/*   Updated: 2024/11/14 13:01:52 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_tolower(int character)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (character >= 'A' && character <= 'Z')
-		character += 32;
-	return (character);
+	t_list	*last;
+
+	last = *new;
+	if (!lst || !new)
+		return NULL;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(lst);
+	last->next = new;
 }

@@ -6,60 +6,62 @@
 /*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 00:39:51 by efranco           #+#    #+#             */
-/*   Updated: 2024/10/31 00:39:51 by efranco          ###   ########.fr       */
+/*   Updated: 2024/11/08 16:04:37 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-int ft_number(int n)
+#include "libft.h"
+
+int	ft_number(int n)
 {
-    int count;
+	int	count;
 
-    if(n < 0)
-        count = 1;
-    else
-        count = 0;
-    while(n != 0)
-    {
-        n /= 10;
-        count++;
-    }
-    return (count);
+	if (n <= 0)
+		count = 1;
+	else
+		count = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
 }
-char *ft_itoa(int n)
-{
-    char    *tab;
-    int i;
-    long long nb;
 
-    nb = n;
-    i = ft_number(nb);
-    tab = malloc(sizeof(char) * (i + 1));
-    if (!tab)
-        return NULL;
-    tab[i] = '\0';
-    if (nb < 0)
-    {
-        tab[0] = '-';
-        nb *= -1;
-    }
-    else if (nb == 0)
-        tab[0] = '0';
-    i--;
-    while (nb > 0)
-    {
-        tab[i] = (nb % 10) + 48;
-        nb /= 10;
-        i--;
-    }
-    return (tab);
+char	*ft_itoa(int n)
+{
+	char		*tab;
+	int			i;
+	long long	nb;
+
+	nb = n;
+	i = ft_number(nb);
+	tab = malloc(sizeof(char) * (i + 1));
+	if (!tab)
+		return (NULL);
+	tab[i] = '\0';
+	if (nb < 0)
+	{
+		tab[0] = '-';
+		nb *= -1;
+	}
+	if (nb == 0)
+		tab[0] = '0';
+	i--;
+	while (nb > 0)
+	{
+		tab[i] = (nb % 10) + 48;
+		nb /= 10;
+		i--;
+	}
+	return (tab);
 }
 /*
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h> // Pour INT_MIN et INT_MAX
+#include <limits.h> 
 
-char *ft_itoa(int n); // Déclaration de la fonction
+char *ft_itoa(int n);
 
 int main(void)
 {
@@ -72,7 +74,7 @@ int main(void)
         if (result)
         {
             printf("ft_itoa(%d) = %s\n", test_values[i], result);
-            free(result); // Libérer la mémoire allouée
+            free(result);
         }
         else
         {

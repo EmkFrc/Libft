@@ -6,19 +6,14 @@
 /*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 22:52:11 by efranco           #+#    #+#             */
-/*   Updated: 2024/11/02 22:52:11 by efranco          ###   ########.fr       */
+/*   Updated: 2024/11/12 17:11:33 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putendl_fd(char *s, int fd)
-{
-        int i;
+#include "libft.h"
 
-    i = 0;
-    while (s[i])
-    {
-        ft_putchar_fd(s[i], fd);
-        i++;
-    }
-    ft_putchar('\n', fd);
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
