@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efranco <rubisingame@gmail.com>            +#+  +:+       +#+        */
+/*   By: efranco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 22:45:44 by efranco           #+#    #+#             */
-/*   Updated: 2024/11/07 15:22:37 by efranco          ###   ########.fr       */
+/*   Created: 2024/11/14 12:52:07 by efranco           #+#    #+#             */
+/*   Updated: 2024/11/14 13:01:52 by efranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
-	size_t	s;
+	t_list	*last;
 
-	i = 0;
-	s = ft_strlen(src);
-	if (!src)
-		return (0);
-	if (size > 0)
+	last = *lst;
+	if (!lst || !new)
+		return ;
+	if (!*lst)
 	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		*lst = new;
+		return ;
 	}
-	return (s);
+	last = ft_lstlast((*lst));
+	last->next = new;
 }
